@@ -11,3 +11,15 @@ function load() {
 }
 
 load();
+
+const message = document.querySelector('#message');
+
+message.addEventListener('keyup', e => {
+    if (e.keyCode == 13) {
+        const text = message.value;
+        const url = `http://localhost/ProjekKelas/chat/chat-write.php?text=${text}`;
+
+        message.value = '';
+        axios.get(url);
+    }
+});
